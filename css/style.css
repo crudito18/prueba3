@@ -1,4 +1,5 @@
 /* Estilo general para la página */
+
 * {
     margin: 0;
     padding: 0;
@@ -48,6 +49,188 @@ body {
     color: #f4f4f4;
 }
 
+/* Ajuste con media queries */
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 700px; /* Limita el ancho máximo en pantallas grandes */
+}
+
+/* Ajuste de tarjetas para pantallas pequeñas */
+.papacontenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.card {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.card img {
+    max-width: 300px;
+}
+
+/* Galería de fotos en una columna en pantallas pequeñas */
+.serviciofotografia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Footer en una sola columna en pantallas pequeñas */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Media queries para pantallas grandes (computadora) */
+@media (min-width: 768px) {
+    /* Barra de navegación centrada */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Contenido de tarjetas en fila */
+    .papacontenedor {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        width: 32%;
+    }
+
+    /* Galería en una fila */
+    .serviciofotografia {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    /* Footer en tres columnas */
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    /* Ajuste del texto en footer */
+    .footer-section {
+        flex: 1;
+        padding: 10px;
+    }
+}
+
+/* Estilos generales */
+.textocliente {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Galería de clientes */
+.galeriadeclientes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 1em;
+}
+
+.cartadeclientes {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding: 1em;
+}
+
+.cartadeclientes img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.cartadeclientes h3 {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .galeriadeclientes {
+        flex-direction: column;
+        align-items: center;
+        height: 400px; /* Altura fija para permitir desplazamiento en dispositivos móviles */
+        overflow-y: auto; /* Desplazamiento vertical */
+    }
+
+    .cartadeclientes {
+        width: 90%; /* Reduce el ancho en dispositivos pequeños */
+    }
+
+    .textocliente {
+        font-size: 1.5em; /* Disminuye el tamaño del título en pantallas pequeñas */
+    }
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 768px) {
+    .galeriadeclientes {
+        flex-direction: row;
+    }
+
+    .cartadeclientes {
+        max-width: 300px; /* Tamaño máximo para tarjetas en pantallas grandes */
+    }
+
+    .textocliente {
+        font-size: 2em; /* Tamaño mayor para el título */
+    }
+}
+
+/* Ajustes finos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .about-us h2 {
+        font-size: 1.5em;
+    }
+
+    .team-member h3 {
+        font-size: 1.1em;
+    }
+
+    .team-member p {
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+
+
+
 /* Estilos para el contenido de la página */
 
 /* Animación para el logo */
@@ -58,14 +241,11 @@ body {
 }
 
 .logosomosmecha {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-left: 170px;
-    margin-top: -50px;
-    margin-bottom: -80px;
-    max-width: 1000px; /* Tamaño ajustable del logo */
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    max-width: 700px; /* Limita el ancho máximo en pantallas grandes */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina espacio en línea */
+    margin: 0 auto; /* Centra la imagen */
     animation: moveLogo 3s infinite ease-in-out;
 }
 
@@ -539,7 +719,7 @@ grid-section p{
 .idvisual {
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
-
