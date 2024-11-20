@@ -1,53 +1,70 @@
-// Imágenes
+// Variables
+$max-img-width: 700px;
+$card-max-width: 100%;
+$card-hover-shadow: 5px 5px 10px 20px rgba(0, 0, 0, 0.4);
+$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+// Mixin para diseño flexible de columnas con ajustes para pantalla móvil
+@mixin flex-column($gap: 20px, $padding: 10px, $breakpoint: 768px) {
+display: flex;
+flex-direction: column;
+gap: $gap;
+padding: $padding;
+
+@media (min-width: $breakpoint) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+}
+
+// Extend para estilos de tarjeta
+%card-style {
+width: 100%;
+max-width: $card-max-width;
+text-align: center;
+box-shadow: $card-shadow;
+padding: 10px;
+margin-bottom: 20px;
+}
+
+// Estilos para imágenes
 img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    max-width: 700px;
+width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+max-width: $max-img-width;
 }
 
-// Contenedor y tarjetas
+// Estilos del contenedor principal
 .papacontenedor {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
+@include flex-column(20px, 10px);
 
-    @media (min-width: 768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
-}
-
+  // Estilos para cada tarjeta dentro del contenedor
 .card {
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-    box-shadow: $card-shadow;
-    padding: 10px;
-    margin-bottom: 20px;
+    @extend %card-style;
 
     img {
-        max-width: 300px;
+max-width: 300px;
     }
 
     &:hover {
-        box-shadow: 5px 5px 10px 20px rgba(0, 0, 0, 0.4);
-        transform: translateY(-3%);
+box-shadow: $card-hover-shadow;
+transform: translateY(-3%);
     }
 }
+}
 
-// Galería de fotografía
+// Estilos para galería de fotografía
 .serviciofotografia {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
 
-    @media (min-width: 768px) {
-        flex-direction: row;
-        justify-content: center;
-    }
+@media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+}
 }

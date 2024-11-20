@@ -1,38 +1,62 @@
-.about-us {
-    padding: 50px 20px;
-    background-color: #f4f4f4;
-    text-align: center;
+// Variables
+$text-color: #333;
+$background-color: #f4f4f4;
+$gradient-start: rgb(214, 137, 137);
+$gradient-end: rgb(208, 168, 168);
+$box-shadow-color: rgba(0, 0, 0, 0.1);
 
-    h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
-        color: $text-color;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+// Mixin para los encabezados principales
+@mixin heading-style($font-size, $color, $uppercase: true, $letter-spacing: 1px) {
+font-size: $font-size;
+color: $color;
+text-transform: if($uppercase, uppercase, none);
+letter-spacing: $letter-spacing;
+margin-bottom: 30px;
 }
+
+// Mixin para el box-shadow
+@mixin box-shadow($x: 0, $y: 4px, $blur: 10px, $color: $box-shadow-color) {
+box-shadow: $x $y $blur $color;
+}
+
+// Extend para estilos de caja común
+%box-style {
+padding: 30px;
+border-radius: 10px;
+text-align: center;
+}
+
+// Estructura principal
+.about-us {
+padding: 50px 20px;
+background-color: $background-color;
+text-align: center;
+
+h2 {
+    @include heading-style(28px, $text-color);
+}
+}
+
 .team-member {
-    background: linear-gradient(to top, rgb(214, 137, 137), rgb(208, 168, 168));
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+background: linear-gradient(to top, $gradient-start, $gradient-end);
+@extend %box-style;
+@include box-shadow();
 
-    h3 {
-        font-size: 1.4em;
-        color: $text-color;
-    }
+h3 {
+    font-size: 1.4em;
+    color: $text-color;
+}
 
-    img {
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-    }
+img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
 
-    p {
-        font-size: 1em;
-        color: #666;
-        margin-top: 10px;
-    }
+p {
+    font-size: 1em;
+    color: #666;
+    margin-top: 10px;
+}
 }

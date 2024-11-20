@@ -1,64 +1,78 @@
-.textocliente {
-    font-size: 2em;
-    text-align: center;
-    margin: 20px 0;
-    color: $text-color;
+// Variables
+$img-max-width: 700px;
+$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$card-hover-shadow: 5px 5px 10px 20px rgba(0, 0, 0, 0.4);
 
-    @media (max-width: 768px) {
-        font-size: 1.5em;
-    }
-
-    @media (min-width: 768px) {
-        font-size: 2em;
-    }
+// Mixin para estilos de imagen
+@mixin img-responsive($max-width: $img-max-width) {
+width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+max-width: $max-width;
 }
 
-// Galería de clientes
-.galeriadeclientes {
-    display: flex;
+// Mixin para contenedores flexibles
+@mixin flex-container($gap: 20px, $padding: 10px, $direction: column) {
+display: flex;
+flex-direction: $direction;
+gap: $gap;
+padding: $padding;
+
+@media (min-width: 768px) {
+    flex-direction: row;
     flex-wrap: wrap;
+    padding: 20px;
+}
+}
+
+// Mixin para estilo de tarjeta
+@mixin card-style($shadow: $card-shadow, $hover-shadow: $card-hover-shadow) {
+width: 100%;
+max-width: 100%;
+text-align: center;
+box-shadow: $shadow;
+padding: 10px;
+margin-bottom: 20px;
+
+&:hover {
+    box-shadow: $hover-shadow;
+    transform: translateY(-3%);
+}
+}
+
+// Extensión para estilos de galería
+%gallery-style {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+
+@media (min-width: 768px) {
+    flex-direction: row;
     justify-content: center;
-    gap: 20px;
-    padding: 1em;
+}
+}
 
-    .cartadeclientes {
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 300px;
-        text-align: center;
-        padding: 1em;
+// Estilos para imágenes
+img {
+@include img-responsive;
+}
 
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+// Contenedor principal de tarjetas
+.papacontenedor {
+@include flex-container;
 
-        h3 {
-            font-size: 1.1em;
-            margin-top: 10px;
-            color: #555;
-        }
+.card {
+    @include card-style;
 
-        &:hover img {
-            transform: scale(1.1);
-        }
-
-        &:hover h3 {
-            background: rgba(255, 255, 255, 1);
-        }
+    img {
+max-width: 300px;
     }
+}
+}
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-        height: 400px;
-        overflow-y: auto;
-    }
-
-    .cartadeclientes {
-        width: 90%;
-    }
+// Galería de fotografía
+.serviciofotografia {
+@extend %gallery-style;
 }
