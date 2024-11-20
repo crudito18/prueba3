@@ -1,0 +1,112 @@
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-section {
+        flex: 1;
+        padding: 10px;
+    }
+}
+.footer {
+    background-color: $footer-bg;
+    color: $footer-text-color;
+    padding: 40px 0;
+    width: 100%;
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: $max-width;
+        margin: 0 auto;
+        padding: 0 20px;
+        gap: 40px;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin: 10px;
+        min-width: 220px;
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ff7a59;
+            border-bottom: 2px solid #ff7a59;
+            padding-bottom: 5px;
+        }
+
+        p,
+        ul,
+        a {
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s;
+            &:hover {
+                color: #ff7a59;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+
+            a img {
+                width: 28px;
+                height: 28px;
+                filter: grayscale(100%);
+                transition: filter 0.3s, transform 0.3s;
+            }
+
+            a img:hover {
+                filter: grayscale(0%);
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding: 15px 0;
+        font-size: 13px;
+        background-color: #111;
+        color: #999;
+        margin-top: 20px;
+        border-top: 1px solid #333;
+        letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-section {
+            margin: 20px 0;
+        }
+    }
+}

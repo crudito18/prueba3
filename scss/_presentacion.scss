@@ -1,0 +1,38 @@
+.about-us {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: $text-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+.team-member {
+    background: linear-gradient(to top, rgb(214, 137, 137), rgb(208, 168, 168));
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h3 {
+        font-size: 1.4em;
+        color: $text-color;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+    }
+
+    p {
+        font-size: 1em;
+        color: #666;
+        margin-top: 10px;
+    }
+}

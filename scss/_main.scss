@@ -1,0 +1,53 @@
+// Imágenes
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+// Contenedor y tarjetas
+.papacontenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    box-shadow: $card-shadow;
+    padding: 10px;
+    margin-bottom: 20px;
+
+    img {
+        max-width: 300px;
+    }
+
+    &:hover {
+        box-shadow: 5px 5px 10px 20px rgba(0, 0, 0, 0.4);
+        transform: translateY(-3%);
+    }
+}
+
+// Galería de fotografía
+.serviciofotografia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}

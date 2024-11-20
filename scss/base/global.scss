@@ -198,22 +198,6 @@ img {
     }
 }
 
-// Animación para el logo
-@keyframes moveLogo {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
-
-.logosomosmecha {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    animation: moveLogo 3s infinite ease-in-out;
-}
-
 // Footer general
 .footer {
     background-color: $footer-bg;
